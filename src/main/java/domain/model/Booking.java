@@ -20,6 +20,14 @@ public class Booking {
     private LocalDateTime bookingDate;
     private BookingStatus status; //Enum für Status CONFIRMED, CANCELLED
 
+    private Booking(Long id, Long userId, Long serviceId, LocalDateTime bookingDate) {
+        this.id = id;
+        this.userId = userId;
+        this.serviceId = serviceId;
+        this.bookingDate = bookingDate;
+        this.status = BookingStatus.PENDING;
+    }
+
     public void confirm() {
         if(this.status != BookingStatus.PENDING) {
             throw new IllegalStateException("Only pending bookings can be confirmed");
@@ -39,6 +47,10 @@ public class Booking {
             throw new IllegalStateException("Cannot update a cancelled booking");
         }
         this.bookingDate = newDate;
+    }
+
+    public static Booking create(Long id, Long userId, Long serviceId, LocalDateTime bookingDate) {
+        return new Booking(id, userId, serviceId, bookingDate);
     }
 
 }
