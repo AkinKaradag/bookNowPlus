@@ -20,6 +20,7 @@ public class JpaBookingAdapter implements BookingRepository {
         jpaRepo.save(mapToJpaEntity(booking));
     }
 
+
     @Override
     public Optional<Booking> findById(Long id){
         return jpaRepo.findById(id)
