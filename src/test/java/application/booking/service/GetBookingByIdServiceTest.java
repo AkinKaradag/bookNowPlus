@@ -1,8 +1,8 @@
 package application.booking.service;
 
-import booknowplus.application.booking.port.in.GetBookingByIdService;
+import booknowplus.application.booking.port.in.GetBookingById;
 import booknowplus.application.booking.port.out.BookingRepository;
-import booknowplus.application.booking.service.GetBookingByIdServiceImpl;
+import booknowplus.application.booking.service.GetBookingByIdService;
 import booknowplus.domain.model.Booking;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,13 +24,12 @@ public class GetBookingByIdServiceTest {
 
     @Mock
     BookingRepository bookingRepository;
-    GetBookingByIdService getBookingByIdService;
+    GetBookingById getBookingById;
 
     @BeforeEach
     void setUp() {
-        getBookingByIdService = new GetBookingByIdServiceImpl(bookingRepository);
+        getBookingById = new GetBookingByIdService(bookingRepository);
     }
-
 
     @Test
     void shouldFindBookingById() {
@@ -40,7 +39,7 @@ public class GetBookingByIdServiceTest {
         when(bookingRepository.findById(1L)).thenReturn(Optional.of(booking));
 
         //WHEN
-        Booking result = getBookingByIdService.getBookingById(1L);
+        Booking result = getBookingById.getBookingById(1L);
 
         //THEN
         assertEquals(booking, result);
@@ -53,7 +52,7 @@ public class GetBookingByIdServiceTest {
         when(bookingRepository.findById(99L)).thenReturn(Optional.empty());
 
         //WHEN / THEN
-        assertThrows(NoSuchElementException.class , () -> getBookingByIdService.getBookingById(99L));
+        assertThrows(NoSuchElementException.class , () -> getBookingById.getBookingById(99L));
     }
 
 }

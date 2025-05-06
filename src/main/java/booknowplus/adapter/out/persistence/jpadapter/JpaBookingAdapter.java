@@ -7,6 +7,7 @@ import booknowplus.domain.model.Booking;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -25,6 +26,20 @@ public class JpaBookingAdapter implements BookingRepository {
     public Optional<Booking> findById(Long id){
         return jpaRepo.findById(id)
                 .map(this::mapToDomain);
+    }
+
+    @Override
+    public List<Booking> findByUserId(Long userId){
+        return jpaRepo.findByUserId(userId).stream()
+                .map(this::mapToDomain)
+                .toList();
+    }
+
+    @Override
+    public List<Booking> findByServiceId(Long serviceId){
+        return jpaRepo.findByServiceId(serviceId).stream()
+                    .map(this::mapToDomain)
+                    .toList();
     }
 
 
