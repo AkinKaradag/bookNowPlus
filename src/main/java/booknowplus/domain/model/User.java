@@ -1,21 +1,19 @@
 package booknowplus.domain.model;
 
 import booknowplus.domain.model.enm.CreateStatus;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+@SuperBuilder
 @Getter
-@AllArgsConstructor
+@RequiredArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class User {
+public abstract class User {
 
     private final Long id;
-    private String firstName;
-    private String lastName;
     private String email;
+    private String password;
     private String phone;
     private CreateStatus status;
 

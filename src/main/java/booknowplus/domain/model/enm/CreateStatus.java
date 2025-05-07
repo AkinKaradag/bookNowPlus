@@ -1,9 +1,12 @@
 package booknowplus.domain.model.enm;
 
 public enum CreateStatus {
-    CREATED,
+    ACTIVE,
+    INACTIVE,
     PENDING,
     APPROVED,
     REJECTED,
+    BLOCKED,
+    CANCELLED,
     DELETED
 }
