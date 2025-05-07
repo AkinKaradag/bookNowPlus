@@ -1,12 +1,11 @@
 package booknowplus.domain.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @Getter
-public class PrivateUser extends User {
+public class CompanyUser extends User {
     private String companyName;
     private String street;
     private String number;
@@ -20,7 +19,7 @@ public class PrivateUser extends User {
         return value;
     }
 
-    public PrivateUser(Long id) {
+    public CompanyUser(Long id) {
         super(id);
 
         this.companyName = validateRequired(companyName, "companyName");
