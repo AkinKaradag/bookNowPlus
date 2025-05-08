@@ -12,7 +12,7 @@ public class PrivateUser extends User {
     private CreateStatus status;
 
     private String validateRequired(String value, String fieldName) {
-        if(value == null || value.isEmpty()) {
+        if (value == null || value.isEmpty()) {
             throw new IllegalArgumentException(fieldName + " is required");
         }
         return value;
@@ -26,7 +26,4 @@ public class PrivateUser extends User {
         this.status = status;
     }
 
-    private static PrivateUser create(Long id, String email, String firstName, String lastName, String password, CreateStatus status) {
-
-    }
 }
