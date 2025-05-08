@@ -1,4 +1,4 @@
-package booknowplus.domain.model;
+package booknowplus.domain.model.users;
 
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
@@ -19,8 +19,8 @@ public class CompanyUser extends User {
         return value;
     }
 
-    public CompanyUser(Long id) {
-        super(id);
+    public CompanyUser(Long id, String email, String companyName, String street, String number, String postalCode, String city) {
+        super(id, email);
 
         this.companyName = validateRequired(companyName, "companyName");
         this.street = validateRequired(street, "street");
