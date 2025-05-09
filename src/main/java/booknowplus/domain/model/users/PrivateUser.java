@@ -9,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 public class PrivateUser extends User {
     private String firstName;
     private String lastName;
-    private CreateStatus status;
 
     private String validateRequired(String value, String fieldName) {
         if (value == null || value.isEmpty()) {
@@ -18,12 +17,27 @@ public class PrivateUser extends User {
         return value;
     }
 
-    public PrivateUser(Long id, String email, String firstName, String lastName, CreateStatus status) {
+    public PrivateUser(Long id, String email, String firstName, String lastName) {
         super(id, email);
-
         this.firstName = validateRequired(firstName, "firstName");
         this.lastName = validateRequired(lastName, "lastName");
-        this.status = status;
+        this.status = CreateStatus.PENDING;
+
+    }
+
+    public static PrivateUser create(Long id, String email, String firstName, String lastName,String password, String phone) {
+        PrivateUser user = new PrivateUser(id, email, firstName, lastName);
+        user.changePassword(password);
+        user.changePhone(phone);
+        return user;
+    }
+
+    public void changeFirstName(String firstName) {
+        this.firstName = validateRequired(firstName, "firstName");
+    }
+
+    public void changeLastName(String lastName) {
+        this.lastName = validateRequired(lastName, "lastName");
     }
 
 }
