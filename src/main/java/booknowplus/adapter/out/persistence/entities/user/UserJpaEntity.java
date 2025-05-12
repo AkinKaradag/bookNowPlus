@@ -1,24 +1,25 @@
-package booknowplus.adapter.out.persistence.entities;
+package booknowplus.adapter.out.persistence.entities.user;
 
 import booknowplus.domain.model.enm.CreateStatus;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 
 @Entity
+@Table(name = "users")
 @Getter
 @Setter
-@Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "user_type")
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class UserJpaEntity {
+@SuperBuilder
+public abstract class UserJpaEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
     private String password;
-    private String firstName;
-    private String lastName;
     private String phone;
 
     @Enumerated(EnumType.STRING)
