@@ -4,6 +4,6 @@ import booknowplus.domain.model.Booking;
 
 import java.util.List;
 
-public interface GetBookingByServiceIdQuery {
-    List<Booking> findByServiceId(Long serviceId);
+public interface GetBookingByUserIdUseCase {
+    List<Booking> findByUserId(Long userId);
 }

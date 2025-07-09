@@ -1,16 +1,16 @@
 package booknowplus.application.booking.service;
 
-import booknowplus.application.booking.port.in.GetBookingById;
+import booknowplus.application.booking.port.in.GetBookingByIdUseCase;
 import booknowplus.application.booking.port.out.BookingRepository;
 import booknowplus.domain.model.Booking;
 
 import java.util.NoSuchElementException;
 
-public class GetBookingByIdService implements GetBookingById {
+public class GetBookingByIdUseCaseService implements GetBookingByIdUseCase {
 
     private final BookingRepository bookingRepository;
 
-    public GetBookingByIdService(BookingRepository bookingRepository) {this.bookingRepository = bookingRepository;}
+    public GetBookingByIdUseCaseService(BookingRepository bookingRepository) {this.bookingRepository = bookingRepository;}
 
     @Override
     public Booking getBookingById(Long id) {

@@ -1,13 +1,13 @@
 package booknowplus.application.booking.service;
 
 
-import booknowplus.application.booking.port.in.GetBookingByUserIdQuery;
+import booknowplus.application.booking.port.in.GetBookingByUserIdUseCase;
 import booknowplus.application.booking.port.out.BookingRepository;
 import booknowplus.domain.model.Booking;
 
 import java.util.List;
 
-public class GetBookingByUserId implements GetBookingByUserIdQuery {
+public class GetBookingByUserId implements GetBookingByUserIdUseCase {
     private final BookingRepository bookingRepository;
 
     public GetBookingByUserId(BookingRepository bookingRepository) {this.bookingRepository = bookingRepository;}

@@ -1,8 +1,8 @@
 package application.booking.service;
 
-import booknowplus.application.booking.port.in.GetBookingById;
+import booknowplus.application.booking.port.in.GetBookingByIdUseCase;
 import booknowplus.application.booking.port.out.BookingRepository;
-import booknowplus.application.booking.service.GetBookingByIdService;
+import booknowplus.application.booking.service.GetBookingByIdUseCaseService;
 import booknowplus.domain.model.Booking;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,15 +20,15 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class GetBookingByIdServiceTest {
+public class GetBookingByIdUseCaseServiceTest {
 
     @Mock
     BookingRepository bookingRepository;
-    GetBookingById getBookingById;
+    GetBookingByIdUseCase getBookingByIdUseCase;
 
     @BeforeEach
     void setUp() {
-        getBookingById = new GetBookingByIdService(bookingRepository);
+        getBookingByIdUseCase = new GetBookingByIdUseCaseService(bookingRepository);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class GetBookingByIdServiceTest {
         when(bookingRepository.findById(1L)).thenReturn(Optional.of(booking));
 
         //WHEN
-        Booking result = getBookingById.getBookingById(1L);
+        Booking result = getBookingByIdUseCase.getBookingById(1L);
 
         //THEN
         assertEquals(booking, result);
@@ -52,7 +52,7 @@ public class GetBookingByIdServiceTest {
         when(bookingRepository.findById(99L)).thenReturn(Optional.empty());
 
         //WHEN / THEN
-        assertThrows(NoSuchElementException.class , () -> getBookingById.getBookingById(99L));
+        assertThrows(NoSuchElementException.class , () -> getBookingByIdUseCase.getBookingById(99L));
     }
 
 }
