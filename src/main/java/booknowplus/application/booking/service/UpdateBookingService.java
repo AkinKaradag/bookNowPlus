@@ -1,7 +1,6 @@
 package booknowplus.application.booking.service;
 
 import booknowplus.application.booking.command.UpdateBookingCommand;
-import booknowplus.application.booking.port.in.CancelBookingUseCase;
 import booknowplus.application.booking.port.in.UpdateBookingUseCase;
 import booknowplus.application.booking.port.out.BookingRepository;
 import booknowplus.domain.model.Booking;
