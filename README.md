@@ -1,6 +1,6 @@
 # BookNow Plus
 
-BookNow Plus ist die weiterentwickelte Version des Projekts [BookNow](https://github.com/dein-link).  
+BookNow Plus ist die weiterentwickelte Version des Projekts [BookNow](https://github.com/AkinKaradag/bookNow.git).  
 Der Fokus liegt auf einer sauberen, modularen Codebasis nach dem Prinzip der **Clean Architecture** sowie auf der Erweiterung und Verbesserung zentraler Funktionen.  
 Das Projekt wurde eigenständig umgesetzt, um meine Kenntnisse in moderner Softwareentwicklung, Architektur und Full-Stack-Integration zu vertiefen.
 
