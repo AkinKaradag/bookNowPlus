@@ -4,7 +4,7 @@ BookNow Plus ist die weiterentwickelte Version des Projekts [BookNow](https://gi
 Der Fokus liegt auf einer sauberen, modularen Codebasis nach dem Prinzip der **Clean Architecture** sowie auf der Erweiterung und Verbesserung zentraler Funktionen.  
 Das Projekt wurde eigenständig umgesetzt, um meine Kenntnisse in moderner Softwareentwicklung, Architektur und Full-Stack-Integration zu vertiefen.
 
-## 🚀 Ziel des Projekts
+## Ziel des Projekts
 
 Ziel war es, die ursprüngliche BookNow-Applikation technisch und architektonisch weiterzuentwickeln.  
 Während BookNow die Basisfunktionen implementiert, konzentriert sich BookNow Plus auf:
@@ -13,7 +13,7 @@ Während BookNow die Basisfunktionen implementiert, konzentriert sich BookNow Pl
 - erweiterte Funktionalitäten
 - Clean Architecture im Backend
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - **Backend:** Java, Spring Boot  
 - **Frontend:** React  
@@ -24,7 +24,7 @@ Während BookNow die Basisfunktionen implementiert, konzentriert sich BookNow Pl
 - **Build & Dependency:** Maven  
 - **Versionierung:** Git, GitHub
 
-## ✨ Hauptfunktionen
+## Hauptfunktionen
 
 - Benutzerregistrierung und Login mit JWT  
 - Verwaltung von Dienstleistungen durch Firmenkunden  
@@ -33,7 +33,7 @@ Während BookNow die Basisfunktionen implementiert, konzentriert sich BookNow Pl
 - Verbesserte Datenvalidierung und Fehlerbehandlung  
 - Einsatz von DTOs zur sauberen Kommunikation zwischen Schichten
 
-## 🧭 Architekturüberblick
+## Architekturüberblick
 
 Das Backend basiert auf dem **Clean Architecture Ansatz**, wodurch:
 - die Business-Logik unabhängig von Frameworks bleibt,  
@@ -56,7 +56,7 @@ Das Backend basiert auf dem **Clean Architecture Ansatz**, wodurch:
 
 Das Frontend kommuniziert über REST mit dem Backend und wurde ebenfalls modularer aufgebaut, um spätere Erweiterungen zu erleichtern.
 
-## 🧪 Lern- und Entwicklungsfokus
+## Lern- und Entwicklungsfokus
 
 - Anwendung und Verständnis von Clean Architecture  
 - Saubere Trennung von Verantwortlichkeiten im Backend  
@@ -64,12 +64,12 @@ Das Frontend kommuniziert über REST mit dem Backend und wurde ebenfalls modular
 - Frontend-Integration mit verbesserten API-Schnittstellen  
 - Sicheres Authentifizierungs- und Berechtigungskonzept
 
-## ☁️ Deployment
+## Deployment
 
 BookNow Plus kann lokal oder über Cloud-Umgebungen wie Google Cloud Run betrieben werden.  
 Für Testzwecke kann eine PostgreSQL- oder SQLite-Datenbank verwendet werden.
 
-## 📈 Unterschiede zu BookNow
+## Unterschiede zu BookNow
 
 | BookNow                       | BookNow Plus                                              |
 |-------------------------------|------------------------------------------------------------|
@@ -78,13 +78,13 @@ Für Testzwecke kann eine PostgreSQL- oder SQLite-Datenbank verwendet werden.
 | Einstieg in Full-Stack         | Fokus auf Struktur, Testbarkeit und Erweiterbarkeit        |
 | Weniger modulare Struktur     | Klare Trennung zwischen Domäne, Applikation, Infrastruktur |
 
-## 🧭 Nächste Schritte
+## Nächste Schritte
 
 - Implementierung von Unit- und Integrationstests  
 - Erweiterung des Rollen- und Rechtekonzepts  
 - UI-Verbesserungen für das Frontend  
 - Erweiterung der CI/CD-Pipeline für Cloud-Deployments
 
-## 📜 Lizenz / Hinweis
+## Lizenz / Hinweis
 
 Dieses Projekt ist ein eigenständig entwickeltes Lern- und Showcase-Projekt zur Demonstration moderner Softwarearchitektur und Full-Stack-Entwicklung.
