@@ -41,6 +41,7 @@ Das Backend basiert auf dem **Clean Architecture Ansatz**, wodurch:
 - die Trennung zwischen Domäne, Applikation und Infrastruktur klar erkennbar ist.
 
 **Struktur (vereinfacht):**
+```
 /domain
 ├── models
 └── services
@@ -52,7 +53,7 @@ Das Backend basiert auf dem **Clean Architecture Ansatz**, wodurch:
 /adapters
 ├── web (Controller)
 ├── dto
-
+```
 
 Das Frontend kommuniziert über REST mit dem Backend und wurde ebenfalls modularer aufgebaut, um spätere Erweiterungen zu erleichtern.
 
