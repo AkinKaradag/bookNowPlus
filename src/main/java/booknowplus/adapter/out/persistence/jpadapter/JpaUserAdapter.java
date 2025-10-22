@@ -33,7 +33,7 @@ public class JpaUserAdapter implements UserRepository {
         return PrivateUserJpaEntity.builder()
                 .id(user.getId())
                 .email(user.getEmail())
-                .password(user.getPassword())
+                .password(user.getPasswordHash())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .phone(user.getPhone())
@@ -45,7 +45,7 @@ public class JpaUserAdapter implements UserRepository {
         return CompanyUserJpaEntity.builder()
                 .id(user.getId())
                 .email(user.getEmail())
-                .password(user.getPassword())
+                .password(user.getPasswordHash())
                 .companyName(user.getCompanyName())
                 .street(user.getStreet())
                 .number(user.getNumber())
@@ -70,10 +70,9 @@ public class JpaUserAdapter implements UserRepository {
                 entity.getId(),
                 entity.getEmail(),
                 entity.getPassword(),
-                entity.getPhone(),
                 entity.getFirstName(),
-                entity.getLastName()
-
+                entity.getLastName(),
+                entity.getPhone()
         );
     }
 

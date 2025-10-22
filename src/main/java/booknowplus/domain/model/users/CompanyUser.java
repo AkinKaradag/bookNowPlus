@@ -20,8 +20,8 @@ public class CompanyUser extends User {
         return value;
     }
 
-    public CompanyUser(Long id, String email, String companyName, String street, String number, String postalCode, String city) {
-        super(id, email);
+    public CompanyUser(Long id, String email, String passwordHash, String companyName, String street, String number, String postalCode, String city) {
+        super(id, email, passwordHash);
 
         this.companyName = validateRequired(companyName, "companyName");
         this.street = validateRequired(street, "street");
@@ -31,9 +31,9 @@ public class CompanyUser extends User {
         this.status = CreateStatus.PENDING;
     }
 
-    public static CompanyUser create(Long id, String email, String companyName, String password, String phone, String street, String number, String postalCode, String city) {
-        CompanyUser user = new CompanyUser(id, email, companyName, street, number, postalCode, city);
-        user.changePassword(password);
+    public static CompanyUser create(Long id, String email, String companyName, String passwordHash, String phone, String street, String number, String postalCode, String city) {
+        CompanyUser user = new CompanyUser(id, email, passwordHash, companyName, street, number, postalCode, city);
+        user.changePassword(passwordHash);
         user.changePhone(phone);
         return user;
     }

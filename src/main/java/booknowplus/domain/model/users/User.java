@@ -6,38 +6,46 @@ import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
 @Getter
-@EqualsAndHashCode
-@ToString
+@EqualsAndHashCode (onlyExplicitlyIncluded = true)
+@ToString (exclude = "passwordHash")
 public abstract class User {
 
+    @EqualsAndHashCode.Include
     protected final Long id;
+
     protected final String email;
-    protected String password;
+
+    protected String passwordHash;
+
+
     protected String phone;
-    protected CreateStatus status;
+
+    @Builder.Default
+    protected CreateStatus status = CreateStatus.PENDING;
 
     private String validateEmail(String email) {
-        if (email == null || email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+        if (email == null || !email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
             throw new IllegalArgumentException("Invalid email format");
         }
         return email;
     }
 
-    private String validatePassword(String password) {
-        if (password == null || password.length() < 8) {
-            throw new IllegalArgumentException("Invalid password format, not Null or less than 8 characters");
+    private String requireNonEmptyHash(String hash) {
+        if (hash == null || hash.isBlank()) {
+            throw new IllegalArgumentException("Password hash must not be empty");
         }
-        return password;
+        return hash;
     }
 
-    public User(Long id, String email){
+    public User(Long id, String email, String passwordHash){
 
         this.id = id;
         this.email = validateEmail(email);
+        this.passwordHash = requireNonEmptyHash(passwordHash);
     }
 
-    protected void changePassword(String password) {
-        this.password = validatePassword(password);
+    protected void changePassword(String newHash) {
+        this.passwordHash = requireNonEmptyHash(newHash);
     }
 
     protected void changePhone(String phone) {

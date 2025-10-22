@@ -17,17 +17,16 @@ public class PrivateUser extends User {
         return value;
     }
 
-    public PrivateUser(Long id, String email, String firstName, String lastName) {
-        super(id, email);
+    public PrivateUser(Long id, String email, String passwordHash, String firstName, String lastName) {
+        super(id, email, passwordHash);
         this.firstName = validateRequired(firstName, "firstName");
         this.lastName = validateRequired(lastName, "lastName");
         this.status = CreateStatus.PENDING;
 
     }
 
-    public static PrivateUser create(Long id, String email, String firstName, String lastName,String password, String phone) {
-        PrivateUser user = new PrivateUser(id, email, firstName, lastName);
-        user.changePassword(password);
+    public static PrivateUser create(Long id, String email, String passwordHash, String firstName, String lastName, String phone) {
+        PrivateUser user = new PrivateUser(id, email, passwordHash, firstName, lastName);
         user.changePhone(phone);
         return user;
     }
