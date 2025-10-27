@@ -3,13 +3,11 @@ package application.booking.service;
 import booknowplus.application.booking.command.CreateBookingCommand;
 import booknowplus.application.booking.port.out.BookingRepository;
 import booknowplus.application.booking.service.CreateBookingService;
-import booknowplus.application.common.IdGenerator;
 import booknowplus.domain.model.Booking;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDateTime;
@@ -21,25 +19,23 @@ import static org.mockito.Mockito.*;
 public class CreateBookingServiceTest {
     BookingRepository bookingRepository;
     CreateBookingService createBookingService;
-    @Mock
-    IdGenerator idGenerator;
 
 
     @BeforeEach
     void setUp() {
         bookingRepository = mock(BookingRepository.class);
-        createBookingService = new CreateBookingService(bookingRepository, idGenerator);
+        createBookingService = new CreateBookingService(bookingRepository);
     }
 
     @Test
     void shouldCreateBookingAndSaveToRepository() {
         //GIVEN: Ich habe einen Command mit Buchungsdaten
         CreateBookingCommand command = new CreateBookingCommand(
+                1L, //id
                 10L, //userId
                 20L, //serviceId
                 LocalDateTime.of(2025, 5, 1, 10, 0)
         );
-        when(idGenerator.generateId()).thenReturn(1L);
 
         //WHEN: Ich führe den Service aus
         Booking result = createBookingService.createBooking(command);

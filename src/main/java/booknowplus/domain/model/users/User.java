@@ -17,7 +17,6 @@ public abstract class User {
 
     protected String passwordHash;
 
-
     protected String phone;
 
     @Builder.Default

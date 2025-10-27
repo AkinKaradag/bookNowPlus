@@ -1,29 +1,29 @@
 package booknowplus.application.User.service;
 
 import booknowplus.application.User.command.privateUser.CreatePrivateUserCommand;
-import booknowplus.application.User.common.UserIdGenerator;
+import booknowplus.application.User.port.in.PrivateUser.CreatePrivateUserUseCase;
 import booknowplus.application.User.port.out.PasswordEncoderPort;
 import booknowplus.application.User.port.out.UserRepository;
 import booknowplus.domain.model.users.PrivateUser;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-public class CreatePrivateUserService {
+@Service
+public class CreatePrivateUserService implements CreatePrivateUserUseCase {
     private final UserRepository userRepository;
-    private final UserIdGenerator userIdGenerator;
     private final PasswordEncoderPort passwordEncoder;
 
-    public CreatePrivateUserService(UserRepository userRepository, UserIdGenerator userIdGenerator, PasswordEncoderPort passwordEncoder) {
+    public CreatePrivateUserService(UserRepository userRepository, PasswordEncoderPort passwordEncoder) {
         this.userRepository = userRepository;
-        this.userIdGenerator = userIdGenerator;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Transactional
+    @Override
     public PrivateUser createPrivateUser(CreatePrivateUserCommand command) {
-        Long userId = userIdGenerator.generateId();
         String hash = passwordEncoder.encode(command.getPassword());
         PrivateUser privateUser = PrivateUser.create(
-                userId,
+                command.getId(),
                 command.getEmail(),
                 hash,
                 command.getFirstName(),

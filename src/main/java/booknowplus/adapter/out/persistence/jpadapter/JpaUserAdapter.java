@@ -31,7 +31,7 @@ public class JpaUserAdapter implements UserRepository {
 
     public PrivateUserJpaEntity mapPrivateUserToJpa (PrivateUser user) {
         return PrivateUserJpaEntity.builder()
-                .id(user.getId())
+
                 .email(user.getEmail())
                 .password(user.getPasswordHash())
                 .firstName(user.getFirstName())
@@ -43,7 +43,7 @@ public class JpaUserAdapter implements UserRepository {
 
     public CompanyUserJpaEntity mapCompanyUserToJpa(CompanyUser user) {
         return CompanyUserJpaEntity.builder()
-                .id(user.getId())
+
                 .email(user.getEmail())
                 .password(user.getPasswordHash())
                 .companyName(user.getCompanyName())
