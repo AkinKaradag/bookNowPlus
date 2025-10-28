@@ -1,4 +1,4 @@
-package booknowplus.application.User.service;
+package booknowplus.application.User.service.privateUser;
 
 import booknowplus.application.User.command.privateUser.CreatePrivateUserCommand;
 import booknowplus.application.User.port.in.PrivateUser.CreatePrivateUserUseCase;

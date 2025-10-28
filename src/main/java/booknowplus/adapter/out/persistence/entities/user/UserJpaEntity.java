@@ -20,7 +20,7 @@ public abstract class UserJpaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String email;
-    private String password;
+    private String passwordHash;
     private String phone;
 
     @Enumerated(EnumType.STRING)
